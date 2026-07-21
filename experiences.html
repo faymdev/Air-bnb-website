@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiences - StayUnique</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-home"></i>
+                <span>StayUnique</span>
+            </a>
+            
+            <div class="nav-center">
+                <a href="index.html" class="nav-link">Stays</a>
+                <a href="experiences.html" class="nav-link active">Experiences</a>
+                <a href="online-experiences.html" class="nav-link">Online Experiences</a>
+            </div>
+            
+            <div class="nav-right">
+                <button class="host-btn">Become a Host</button>
+                <button class="globe-btn"><i class="fas fa-globe"></i></button>
+                <div class="user-menu">
+                    <button class="menu-btn" id="menuBtn">
+                        <i class="fas fa-bars"></i>
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="#" class="dropdown-item">Sign up</a>
+                        <a href="#" class="dropdown-item">Log in</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Host your home</a>
+                        <a href="#" class="dropdown-item">Help Center</a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-nav-link">Stays</a>
+            <a href="experiences.html" class="mobile-nav-link active">Experiences</a>
+            <a href="online-experiences.html" class="mobile-nav-link">Online Experiences</a>
+            <div class="mobile-divider"></div>
+            <a href="#" class="mobile-nav-link">Sign up</a>
+            <a href="#" class="mobile-nav-link">Log in</a>
+            <a href="#" class="mobile-nav-link">Become a Host</a>
+        </div>
+    </nav>
+
+    <!-- Experience Categories -->
+    <section class="categories sticky-categories">
+        <div class="categories-container">
+            <button class="category-scroll-btn left" id="catScrollLeft">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="categories-scroll" id="categoriesScroll">
+                <div class="category-item active" data-category="all">
+                    <i class="fas fa-th-large"></i>
+                    <span>All</span>
+                </div>
+                <div class="category-item" data-category="adventure">
+                    <i class="fas fa-hiking"></i>
+                    <span>Adventure</span>
+                </div>
+                <div class="category-item" data-category="food">
+                    <i class="fas fa-utensils"></i>
+                    <span>Food & Drink</span>
+                </div>
+                <div class="category-item" data-category="art">
+                    <i class="fas fa-palette"></i>
+                    <span>Art & Culture</span>
+                </div>
+                <div class="category-item" data-category="wellness">
+                    <i class="fas fa-spa"></i>
+                    <span>Wellness</span>
+                </div>
+                <div class="category-item" data-category="entertainment">
+                    <i class="fas fa-music"></i>
+                    <span>Entertainment</span>
+                </div>
+                <div class="category-item" data-category="nature">
+                    <i class="fas fa-leaf"></i>
+                    <span>Nature</span>
+                </div>
+                <div class="category-item" data-category="sports">
+                    <i class="fas fa-running"></i>
+                    <span>Sports</span>
+                </div>
+            </div>
+            <button class="category-scroll-btn right" id="catScrollRight">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="filter-btn" id="filterBtn">
+                <i class="fas fa-sliders-h"></i>
+                <span>Filters</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Experiences Header -->
+    <section class="experiences-page-header">
+        <div class="experiences-header-container">
+            <h1>Discover Experiences</h1>
+            <p>Unique activities hosted by locals around the world</p>
+        </div>
+    </section>
+
+    <!-- Experiences Grid -->
+    <section class="experiences-page">
+        <div class="experiences-page-container">
+            <div class="experiences-grid full" id="experiencesGrid">
+                <!-- Experience cards will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-bottom simple">
+                <div class="footer-left">
+                    <span class="copyright">&copy; 2026 StayUnique, Inc.</span>
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                </div>
+                <div class="footer-right">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Filter Modal -->
+    <div class="modal filter-modal" id="filterModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+                <h2>Filters</h2>
+                <button class="clear-all" id="clearAll">Clear all</button>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Price range</h3>
+                <div class="price-range">
+                    <div class="price-inputs">
+                        <div class="price-input">
+                            <label>Minimum</label>
+                            <input type="number" id="minPrice" placeholder="$0">
+                        </div>
+                        <span>-</span>
+                        <div class="price-input">
+                            <label>Maximum</label>
+                            <input type="number" id="maxPrice" placeholder="$1000+">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Duration</h3>
+                <div class="amenities-list">
+                    <label class="checkbox-label">
+                        <input type="checkbox" value="1h" class="duration-filter">
+                        <span>Under 1 hour</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" value="2h" class="duration-filter">
+                        <span>1-2 hours</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" value="4h" class="duration-filter">
+                        <span>2-4 hours</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" value="4h+" class="duration-filter">
+                        <span>4+ hours</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Group Size</h3>
+                <div class="amenities-list">
+                    <label class="checkbox-label">
+                        <input type="checkbox" value="small" class="group-filter">
+                        <span>Small (1-6 guests)</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" value="medium" class="group-filter">
+                        <span>Medium (7-15 guests)</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" value="large" class="group-filter">
+                        <span>Large (16+ guests)</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="show-results-btn" id="showResults">Show results</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/search.js"></script>
+    <script>
+        // Experience page specific filter functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtn = document.getElementById('filterBtn');
+            const filterModal = document.getElementById('filterModal');
+            const modalClose = document.getElementById('modalClose');
+            const clearAll = document.getElementById('clearAll');
+            const showResults = document.getElementById('showResults');
+            
+            // Filter modal toggle
+            filterBtn?.addEventListener('click', () => {
+                filterModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            modalClose?.addEventListener('click', closeFilterModal);
+            
+            filterModal?.addEventListener('click', (e) => {
+                if (e.target === filterModal) closeFilterModal();
+            });
+            
+            clearAll?.addEventListener('click', () => {
+                document.querySelectorAll('.filter-modal input').forEach(input => {
+                    input.checked = false;
+                    input.value = '';
+                });
+            });
+            
+            showResults?.addEventListener('click', () => {
+                applyFilters();
+                closeFilterModal();
+            });
+            
+            function closeFilterModal() {
+                filterModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            function applyFilters() {
+                const minPrice = parseInt(document.getElementById('minPrice')?.value) || 0;
+                const maxPrice = parseInt(document.getElementById('maxPrice')?.value) || Infinity;
+                
+                let filtered = window.StayUnique?.experiences || [];
+                
+                // Price filter
+                filtered = filtered.filter(exp => exp.price >= minPrice && exp.price <= maxPrice);
+                
+                // Render filtered results
+                if (window.StayUnique?.renderExperiences) {
+                    window.StayUnique.renderExperiences('#experiencesGrid', filtered, null, true);
+                }
+            }
+            
+            // Category filtering
+            document.querySelectorAll('.category-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    document.querySelectorAll('.category-item').forEach(cat => cat.classList.remove('active'));
+                    item.classList.add('active');
+                    
+                    const category = item.dataset.category;
+                    let filtered = window.StayUnique?.experiences || [];
+                    
+                    if (category !== 'all') {
+                        filtered = filtered.filter(exp => exp.category === category);
+                    }
+                    
+                    if (window.StayUnique?.renderExperiences) {
+                        window.StayUnique.renderExperiences('#experiencesGrid', filtered, null, true);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayUnique - Find Your Perfect Stay</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-home"></i>
+                <span>StayUnique</span>
+            </a>
+            
+            <div class="nav-center">
+                <a href="index.html" class="nav-link active">Stays</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+                <a href="online-experiences.html" class="nav-link">Online Experiences</a>
+            </div>
+            
+            <div class="nav-right">
+                <button class="host-btn">Become a Host</button>
+                <button class="globe-btn"><i class="fas fa-globe"></i></button>
+                <div class="user-menu">
+                    <button class="menu-btn" id="menuBtn">
+                        <i class="fas fa-bars"></i>
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="#" class="dropdown-item">Sign up</a>
+                        <a href="#" class="dropdown-item">Log in</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Host your home</a>
+                        <a href="#" class="dropdown-item">Help Center</a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#" class="mobile-nav-link active">Stays</a>
+            <a href="#" class="mobile-nav-link">Experiences</a>
+            <a href="#" class="mobile-nav-link">Online Experiences</a>
+            <div class="mobile-divider"></div>
+            <a href="#" class="mobile-nav-link">Sign up</a>
+            <a href="#" class="mobile-nav-link">Log in</a>
+            <a href="#" class="mobile-nav-link">Become a Host</a>
+            <a href="#" class="mobile-nav-link">Help Center</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Search -->
+    <section class="hero">
+        <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1920&q=80" alt="Beautiful apartment interior" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Find Your Perfect Stay Anywhere</h1>
+            <p class="hero-subtitle">Discover unique homes and experiences around the world</p>
+            
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <div class="search-item">
+                    <label>Location</label>
+                    <input type="text" placeholder="Where are you going?" id="locationInput">
+                </div>
+                <div class="search-divider"></div>
+                <div class="search-item">
+                    <label>Check in</label>
+                    <input type="text" placeholder="Add dates" id="checkinInput" onfocus="(this.type='date')">
+                </div>
+                <div class="search-divider"></div>
+                <div class="search-item">
+                    <label>Check out</label>
+                    <input type="text" placeholder="Add dates" id="checkoutInput" onfocus="(this.type='date')">
+                </div>
+                <div class="search-divider"></div>
+                <div class="search-item guests">
+                    <label>Guests</label>
+                    <button class="guests-btn" id="guestsBtn">
+                        <span id="guestsText">Add guests</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="guests-dropdown" id="guestsDropdown">
+                        <div class="guest-type">
+                            <div class="guest-info">
+                                <span class="guest-label">Adults</span>
+                                <span class="guest-age">Ages 13+</span>
+                            </div>
+                            <div class="guest-counter">
+                                <button class="counter-btn minus" data-type="adults" disabled><i class="fas fa-minus"></i></button>
+                                <span class="counter-value" id="adultsCount">0</span>
+                                <button class="counter-btn plus" data-type="adults"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        <div class="guest-type">
+                            <div class="guest-info">
+                                <span class="guest-label">Children</span>
+                                <span class="guest-age">Ages 2-12</span>
+                            </div>
+                            <div class="guest-counter">
+                                <button class="counter-btn minus" data-type="children" disabled><i class="fas fa-minus"></i></button>
+                                <span class="counter-value" id="childrenCount">0</span>
+                                <button class="counter-btn plus" data-type="children"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        <div class="guest-type">
+                            <div class="guest-info">
+                                <span class="guest-label">Infants</span>
+                                <span class="guest-age">Under 2</span>
+                            </div>
+                            <div class="guest-counter">
+                                <button class="counter-btn minus" data-type="infants" disabled><i class="fas fa-minus"></i></button>
+                                <span class="counter-value" id="infantsCount">0</span>
+                                <button class="counter-btn plus" data-type="infants"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        <div class="guest-type">
+                            <div class="guest-info">
+                                <span class="guest-label">Pets</span>
+                                <span class="guest-age">Service animals?</span>
+                            </div>
+                            <div class="guest-counter">
+                                <button class="counter-btn minus" data-type="pets" disabled><i class="fas fa-minus"></i></button>
+                                <span class="counter-value" id="petsCount">0</span>
+                                <button class="counter-btn plus" data-type="pets"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="categories-container">
+            <button class="category-scroll-btn left" id="catScrollLeft">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="categories-scroll" id="categoriesScroll">
+                <div class="category-item active" data-category="all">
+                    <img src="https://a0.muscache.com/pictures/7630c83f-96a8-4232-9a10-0398661e2e6f.jpg" alt="All">
+                    <span>All</span>
+                </div>
+                <div class="category-item" data-category="beachfront">
+                    <img src="https://a0.muscache.com/pictures/bcd1adc0-5cee-4d91-a0ea-57be8a6aaeb3.jpg" alt="Beachfront">
+                    <span>Beachfront</span>
+                </div>
+                <div class="category-item" data-category="cabins">
+                    <img src="https://a0.muscache.com/pictures/732edad8-3ae0-49a8-a451-29a8010dcc0c.jpg" alt="Cabins">
+                    <span>Cabins</span>
+                </div>
+                <div class="category-item" data-category="trending">
+                    <img src="https://a0.muscache.com/pictures/3726d97b-534a-42b8-bca0-a0304d912fc1.jpg" alt="Trending">
+                    <span>Trending</span>
+                </div>
+                <div class="category-item" data-category="luxury">
+                    <img src="https://a0.muscache.com/pictures/c8e2ed05-c666-47b6-99fc-7540aeeb4d69.jpg" alt="Luxury">
+                    <span>Luxury</span>
+                </div>
+                <div class="category-item" data-category="countryside">
+                    <img src="https://a0.muscache.com/pictures/6ad4bd95-f086-437d-97e3-14d12155ddfe.jpg" alt="Countryside">
+                    <span>Countryside</span>
+                </div>
+                <div class="category-item" data-category="tiny">
+                    <img src="https://a0.muscache.com/pictures/35919456-df89-4024-ad50-5fcb7a472df9.jpg" alt="Tiny homes">
+                    <span>Tiny homes</span>
+                </div>
+                <div class="category-item" data-category="amazing">
+                    <img src="https://a0.muscache.com/pictures/3b1eb541-46d9-4bef-abc4-c37d77e3c21b.jpg" alt="Amazing views">
+                    <span>Amazing views</span>
+                </div>
+                <div class="category-item" data-category="mansions">
+                    <img src="https://a0.muscache.com/pictures/78ba8486-6ba6-4a43-a56d-f556189193da.jpg" alt="Mansions">
+                    <span>Mansions</span>
+                </div>
+                <div class="category-item" data-category="treehouses">
+                    <img src="https://a0.muscache.com/pictures/4d4a4eba-c7e4-43eb-9ce2-95e1d200d10e.jpg" alt="Treehouses">
+                    <span>Treehouses</span>
+                </div>
+                <div class="category-item" data-category="camping">
+                    <img src="https://a0.muscache.com/pictures/ca25c7f3-0d1f-432b-9efa-b9f5dc6d8770.jpg" alt="Camping">
+                    <span>Camping</span>
+                </div>
+                <div class="category-item" data-category="design">
+                    <img src="https://a0.muscache.com/pictures/50861fca-582c-4bcc-89d3-857fb7ca6528.jpg" alt="Design">
+                    <span>Design</span>
+                </div>
+            </div>
+            <button class="category-scroll-btn right" id="catScrollRight">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="filter-btn">
+                <i class="fas fa-sliders-h"></i>
+                <span>Filters</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Property Listings Section -->
+    <section class="listings">
+        <div class="listings-container">
+            <div class="listings-header">
+                <h2 class="section-title">Featured Stays</h2>
+                <a href="listings.html" class="view-all">View all <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="listings-grid" id="listingsGrid">
+                <!-- Property cards will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- App Section -->
+    <section class="app-section">
+        <div class="app-container">
+            <div class="app-content">
+                <span class="section-tag">CONVENIENT APPLICATION</span>
+                <h2 class="app-title">Modern App</h2>
+                <p class="app-description">We developed a simple and functional app. It is built in such a way to simplify the problem of the accommodation selection and rental process. View the location, amenities, and other information about each of the properties in one click.</p>
+                <button class="download-btn">
+                    <i class="fab fa-apple"></i>
+                    Download App
+                </button>
+            </div>
+            <div class="app-phones">
+                <div class="phone-mockup phone-1">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80" alt="App screenshot">
+                </div>
+                <div class="phone-mockup phone-2">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80" alt="App screenshot">
+                </div>
+                <div class="phone-mockup phone-3">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=80" alt="App screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <span class="section-tag">TAKING CARE OF EVERY CLIENT</span>
+            <h2 class="section-title">Key Features</h2>
+            <p class="section-subtitle">We are all about our client's comfort and safety. That's why we provide the best service you can imagine.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="assets/images/feature-checkin.jpg" alt="24-hour check-in" loading="lazy">
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>24-hour check-in</h3>
+                        <p>Flexible check-in times to accommodate your travel schedule</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="assets/images/feature-support.jpg" alt="24/7 support" loading="lazy">
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>24/7 support</h3>
+                        <p>Our dedicated team is always here to help you</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="assets/images/feature-amenities.jpg" alt="Premium amenities" loading="lazy">
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Premium amenities</h3>
+                        <p>All properties come with high-quality amenities</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80" alt="Secure booking" loading="lazy">
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure booking</h3>
+                        <p>Your payments and personal data are always protected</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section class="experiences">
+        <div class="experiences-container">
+            <div class="listings-header">
+                <div class="section-header" style="text-align: left; margin-bottom: 0;">
+                    <h2 class="section-title">Discover Experiences</h2>
+                    <p class="section-subtitle">Unique activities hosted by locals</p>
+                </div>
+                <a href="experiences.html" class="view-all">View all <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="experiences-grid" id="experiencesGrid">
+                <!-- Experience cards will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <h2 class="section-title">What Guests Say</h2>
+            <div class="testimonials-slider" id="testimonialsSlider">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <!-- Testimonials will be dynamically generated -->
+                </div>
+                <button class="testimonial-nav prev" id="testPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonial-nav next" id="testNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-background">
+            <img src="assets/images/cta-host.jpg" alt="Beautiful vacation home" loading="lazy">
+            <div class="cta-overlay"></div>
+        </div>
+        <div class="cta-container">
+            <h2 class="cta-title">Start Hosting Today</h2>
+            <p class="cta-description">Share your space and earn extra income. Join millions of hosts on StayUnique.</p>
+            <button class="cta-btn">
+                <i class="fas fa-home"></i>
+                Become a Host
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety Information</a></li>
+                        <li><a href="#">Cancellation Options</a></li>
+                        <li><a href="#">Report a Problem</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">StayUnique.org</a></li>
+                        <li><a href="#">Disaster Relief</a></li>
+                        <li><a href="#">Combating Discrimination</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Hosting</h4>
+                    <ul>
+                        <li><a href="#">Try Hosting</a></li>
+                        <li><a href="#">AirCover for Hosts</a></li>
+                        <li><a href="#">Explore Hosting Resources</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Newsroom</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Investors</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h4>Subscribe to News</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your e-mail">
+                    <button><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-left">
+                    <span class="copyright">&copy; 2026 StayUnique, Inc.</span>
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                </div>
+                <div class="footer-right">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <h2>Log in or sign up</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="Email address">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password">
+                </div>
+                <button type="submit" class="login-btn">Continue</button>
+            </form>
+            <div class="login-divider">
+                <span>or</span>
+            </div>
+            <button class="social-login">
+                <i class="fab fa-google"></i>
+                Continue with Google
+            </button>
+            <button class="social-login">
+                <i class="fab fa-apple"></i>
+                Continue with Apple
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>
